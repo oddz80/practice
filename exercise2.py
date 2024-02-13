@@ -10,16 +10,17 @@ from math import pi, degrees, radians
 # converts them to degrees.The result should be placed in a dictionary. 
 # 3.721 rad, 7π/6 rad ,11π/12 rad
 
-def deg2rad(deg_angles:list)-> tuple:
-    rad = (deg_angles,)
-    for i in range(len(deg_angles)):
-        rad[0][i-1] = deg_angles[i-1]*(pi/180)
-    return(rad)
+def deg2rad(deg_angles:list)-> list:
+    result = []
+    for ele in deg_angles:
+        value = radians(ele)
+        result.append((ele,value))
+    return(result)
 
 def rad2deg(rad_angles:list)-> dict:
     deg = {}
-    for x in rad_angles:
-        deg[x] = degrees(x)
+    for ele in rad_angles:
+        deg[ele] = degrees(ele)
     return(deg)
 
 def main():
