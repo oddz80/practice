@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from bson import ObjectId
 from bson.json_util import dumps,loads
 from flask_pymongo import PyMongo
-import urllib.parse
 from bson.json_util import dumps,loads
 app = Flask(__name__)
 
