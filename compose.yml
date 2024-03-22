@@ -1,0 +1,32 @@
+version: '3.8'
+networks:
+  my_net:
+
+services:
+  db:
+    image: mongo:7.0
+    container_name: elyte-mongo-db
+    restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - my_net
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    volumes:
+      - ./db_data:/data/db
+  mysql:
+      image: mysql:latest
+      container_name: MySQLCont
+      environment:
+        - "MYSQL_USER=user"
+        - "MYSQL_DATABASE=foracs"
+        - "MYSQL_ROOT_PASSWORD=secret"
+        - "MYSQL_PASSWORD=secret"
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./persistence:/var/lib/mysql
+      networks:
+        - my_net

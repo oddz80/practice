@@ -33,7 +33,7 @@ class Database:
         print(f"Employee with id : {post_id} inserted to db")
 
     def find_one_by_name(self, name: str):
-        one = self.db.employees.find_one({"name": "Elyte"})
+        one = self.db.employees.find_one({"name": name})
         print(one)
 
 
@@ -49,7 +49,7 @@ employeee = {
 db_obj = Database()
 db_obj.init_db()
 db_obj.insert_one(employeee)
-
+db_obj.find_one_by_name('Fred')
 
 
 
